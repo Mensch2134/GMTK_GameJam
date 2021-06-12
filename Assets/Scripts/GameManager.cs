@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.E) && !isBeingDragged)
         {
             isBeingDragged = true;
+            player0.rb.velocity = Vector2.zero;
+            player1.rb.velocity = Vector2.zero;
 
             _blockPlayerMovement = true;
             player0.movementFrozen = _blockPlayerMovement;

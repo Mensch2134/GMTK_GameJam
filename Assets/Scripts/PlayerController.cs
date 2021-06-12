@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float movementSpeed = 5f;
+    public float targetMoveSpeed;
     public Rigidbody2D rb;
 
     [Header("PlayerStats")]
@@ -38,18 +39,13 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!movementFrozen)
-        {
-            move(movementDirection);
-        }
-
         if (GameManager.isBeingDragged)
         {
             rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
         }
-        else
+        if (!movementFrozen)
         {
-            rb.velocity = new Vector2(0, 0);
+            move(movementDirection);
         }
     }
 
@@ -57,16 +53,25 @@ public class PlayerController : MonoBehaviour
     {
         if (playerIndex == 0)
         {
-            movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+            movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }else if (playerIndex == 1)
         {
-            movementDirection = new Vector2(Input.GetAxisRaw("HorizontalAlt"), Input.GetAxisRaw("VerticalAlt")).normalized;
+            movementDirection = new Vector2(Input.GetAxisRaw("HorizontalAlt"), Input.GetAxisRaw("VerticalAlt"));
         }
     }
 
     void move(Vector2 direction)
     {
-        rb.MovePosition(rb.position + direction * movementSpeed * Time.deltaTime);
+        //if (direction.magnitude > 1)
+        //{
+        //    direction = direction.normalized;
+        //}
+        //rb.velocity = direction * movementSpeed;
+        if (rb.velocity.magnitude < targetMoveSpeed)
+        {
+
+        }
+        rb.AddForce(direction * movementSpeed, ForceMode2D.Force);
     }
 
     public void CalculateDragDirection(Vector2 vDragDirection, float distance)
