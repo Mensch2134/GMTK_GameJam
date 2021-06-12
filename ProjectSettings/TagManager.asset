@@ -47,6 +47,9 @@ TagManager:
   - name: Ground
     uniqueID: 3545739993
     locked: 0
+  - name: FireGrids
+    uniqueID: 2578811511
+    locked: 0
   - name: Walls
     uniqueID: 1382708951
     locked: 0
