@@ -26,6 +26,33 @@ TextureImporter:
   - first:
       213: -6639236881441232498
     second: MauerTilesPog_7
+  - first:
+      213: -8785941229314459422
+    second: MauerTilesPog_8
+  - first:
+      213: 6716068153459561090
+    second: MauerTilesPog_9
+  - first:
+      213: 5283196962519664822
+    second: MauerTilesPog_10
+  - first:
+      213: -5884537784914533101
+    second: MauerTilesPog_11
+  - first:
+      213: 7160131064513036554
+    second: MauerTilesPog_12
+  - first:
+      213: -906716824433727069
+    second: MauerTilesPog_13
+  - first:
+      213: 3125200798452583213
+    second: MauerTilesPog_14
+  - first:
+      213: -2353838174475299689
+    second: MauerTilesPog_15
+  - first:
+      213: 3668481654008721870
+    second: MauerTilesPog_16
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -147,7 +174,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,7 +195,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,7 +216,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,7 +237,7 @@ TextureImporter:
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +253,12 @@ TextureImporter:
       name: MauerTilesPog_4
       rect:
         serializedVersion: 2
-        x: 5
-        y: 98
+        x: 65
+        y: 113
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +274,12 @@ TextureImporter:
       name: MauerTilesPog_5
       rect:
         serializedVersion: 2
-        x: 20
-        y: 98
+        x: 80
+        y: 113
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +295,12 @@ TextureImporter:
       name: MauerTilesPog_6
       rect:
         serializedVersion: 2
-        x: 35
-        y: 98
+        x: 95
+        y: 113
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +316,12 @@ TextureImporter:
       name: MauerTilesPog_7
       rect:
         serializedVersion: 2
-        x: 50
-        y: 98
+        x: 110
+        y: 113
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,6 +329,195 @@ TextureImporter:
       bones: []
       spriteID: e89e5068b31bcd3a0800000000000000
       internalID: -6639236881441232498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8b0497001121680800000000000000
+      internalID: -8785941229314459422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282554ef664443d50800000000000000
+      internalID: 6716068153459561090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b8486555afa15940800000000000000
+      internalID: 5283196962519664822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_11
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3152eceef0ce55ea0800000000000000
+      internalID: -5884537784914533101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a010a856445ed5360800000000000000
+      internalID: 7160131064513036554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a9e1c72ad1ba63f0800000000000000
+      internalID: -906716824433727069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_14
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b88837191fe5b20800000000000000
+      internalID: 3125200798452583213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_15
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79455a7c6ac755fd0800000000000000
+      internalID: -2353838174475299689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MauerTilesPog_16
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 83
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec13a3cb0a019e230800000000000000
+      internalID: 3668481654008721870
       vertices: []
       indices: 
       edges: []

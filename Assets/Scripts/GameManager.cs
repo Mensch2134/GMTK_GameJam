@@ -23,8 +23,9 @@ public class GameManager : MonoBehaviour
     {
         Vector2 player0Direction = player1.gameObject.transform.position - player0.gameObject.transform.position;
         Vector2 player1Direction = player0Direction * -1f;
+        float distance = player0Direction.magnitude;
 
-        player0.DragMeARiver(player0Direction);
-        player1.DragMeARiver(player1Direction);
+        player0.DragMeARiver(player0Direction, distance);
+        player1.DragMeARiver(player1Direction, distance);
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     public float movementSpeed = 5f;
     public Rigidbody2D rb;
 
-    Vector2 movementDirection;
-
+    [Header("PlayerStats")]
     public int playerIndex;
 
-    bool playerIsBeginDragged;
-    Vector2 dragDirection;
+    [Header("Drag")]
     public float dragForce;
-    public float dragDuration;
+    public float distanceInfluence;
+
+    Vector2 movementDirection;
+
+        float BASE_DRAG_FORCE = 1;
 
     private void Start()
     {
@@ -35,10 +38,8 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.movementFrozen)
         {
             move(movementDirection);
-        }else if (playerIsBeginDragged)
-        {
-            drag(dragDirection);
         }
+        //Debug.Log(rb.velocity);
     }
 
     void processInputs()
@@ -57,21 +58,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + direction * movementSpeed * Time.deltaTime);
     }
 
-    void drag(Vector2 vDragDirection)
+    public void DragMeARiver(Vector2 vDragDirection, float distance)
     {
-        rb.AddForce(vDragDirection * dragForce);
-        StartCoroutine(DraggingThePlayer());
-    }
-
-    public void DragMeARiver(Vector2 vDragDirection)
-    {
-        playerIsBeginDragged = true;
-        dragDirection = vDragDirection.normalized;
-    }
-
-    IEnumerator DraggingThePlayer()
-    {
-        yield return new WaitForSecondsRealtime(dragDuration);
-        playerIsBeginDragged = false;
+        Vector2 dragDirection = vDragDirection.normalized;
+        //Debug.Log(this.name + dragDirection * dragForce);
+        float distanceFactor = distance * distanceInfluence;
+        rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
     }
 }
