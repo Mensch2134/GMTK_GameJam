@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Diagnostics;
 using UnityEngine.UI;
 using System;
+using System.Linq;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,11 +17,15 @@ public class GameManager : MonoBehaviour
     public float maxWalkPhaseTimeInSeconds = 8;
     public float timeRemaining = 20;
     public Text TimerTimeText;
+    public GameObject spawnPoint0;
+    public GameObject spawnPoint1;
+    public int playerMaxHealth = 3;
 
 
     private void Start()
     {
         TimerTimeText.text = "Game Starts in: " + timeRemaining;
+        GameEvents.current.onPlayerHit += OnPlayerHit;
     }
     // Update is called once per frame
     void Update()
@@ -90,5 +96,23 @@ public class GameManager : MonoBehaviour
             player1.movementFrozen = _blockPlayerMovement;
             timeRemaining = maxPullPhaseTimeInSeconds;
         }
+    }
+
+   public void OnPlayerHit(PlayerController player)
+    {
+        //remove hp und reset position
+        player.health -= 1;
+        if(player.health == 0)
+        {
+            TimerTimeText.text = "Game Over";
+            player0.health = playerMaxHealth;
+            player1.health = playerMaxHealth;
+        }
+        player0.rb.velocity =  new Vector2(0,0);
+        player1.rb.velocity = new Vector2(0, 0);
+        player0.transform.position = spawnPoint0.transform.position;
+        player1.transform.position = spawnPoint1.transform.position;
+        DragPhase = false;
+        timeRemaining = 15;
     }
 }

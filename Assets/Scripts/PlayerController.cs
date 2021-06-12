@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("PlayerStats")]
     public int playerIndex;
+    public int health;
 
     [Header("Drag")]
     public float dragForce;
@@ -23,8 +24,12 @@ public class PlayerController : MonoBehaviour
     private float distanceFactor;
     public bool movementFrozen = false;
 
+    public UnityEvent _playerHit;
+
+
     private void Start()
     {
+        _playerHit = new UnityEvent();
         if (playerIndex < 0 || playerIndex > 1)
         {
             Debug.Log("PlayeIndex has to be 1 or 0 for the Players to move");
@@ -79,5 +84,9 @@ public class PlayerController : MonoBehaviour
         dragDirection = vDragDirection.normalized;
         //Debug.Log(this.name + dragDirection * dragForce);
         distanceFactor = distance * distanceInfluence;
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        GameEvents.current.PlayerHit(this);
     }
 }
