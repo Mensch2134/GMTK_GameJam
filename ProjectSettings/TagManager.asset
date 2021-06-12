@@ -53,3 +53,9 @@ TagManager:
   - name: Walls
     uniqueID: 1382708951
     locked: 0
+  - name: SoulConnection
+    uniqueID: 4062329603
+    locked: 0
+  - name: Player
+    uniqueID: 3629270495
+    locked: 0
