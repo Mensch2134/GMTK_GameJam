@@ -20,12 +20,13 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint0;
     public GameObject spawnPoint1;
     public int playerMaxHealth = 3;
-
+    List<GameObject> _lightZones = new List<GameObject>();
 
     private void Start()
     {
         TimerTimeText.text = "Game Starts in: " + timeRemaining;
         GameEvents.current.onPlayerHit += OnPlayerHit;
+        DeployLightZones();
     }
     // Update is called once per frame
     void Update()
@@ -108,11 +109,37 @@ public class GameManager : MonoBehaviour
             player0.health = playerMaxHealth;
             player1.health = playerMaxHealth;
         }
+        DestroyLightZones();
+        DeployLightZones();
         player0.rb.velocity =  new Vector2(0,0);
         player1.rb.velocity = new Vector2(0, 0);
         player0.transform.position = spawnPoint0.transform.position;
         player1.transform.position = spawnPoint1.transform.position;
         DragPhase = false;
         timeRemaining = 15;
+    }
+
+    public GameObject lightZonePrefab;
+
+    public void DeployLightZones()
+    {
+        int toAdd = UnityEngine.Random.Range(4, 10);
+         
+        for (int i = 0; i < toAdd; i++)
+        {
+            var zone = Instantiate(lightZonePrefab);
+            zone.transform.localScale = new Vector3(UnityEngine.Random.Range(2, 10), UnityEngine.Random.Range(2, 5), UnityEngine.Random.Range(2, 5));
+            zone.transform.position = new Vector2(UnityEngine.Random.Range(-13, 13), UnityEngine.Random.Range(-8, 8));
+            _lightZones.Add(zone);
+        }
+    }
+    public void DestroyLightZones()
+    {
+       foreach(var zone in _lightZones)
+        {
+            zone.SetActive(false);
+            Destroy(zone);
+        }
+        _lightZones.Clear();
     }
 }
