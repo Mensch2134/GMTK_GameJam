@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.isBeingDragged)
+        if (GameManager.DragPhase)
         {
             rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
         }
