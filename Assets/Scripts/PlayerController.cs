@@ -38,13 +38,18 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameManager.isBeingDragged && !movementFrozen)
+        if (!movementFrozen)
         {
             move(movementDirection);
         }
-        if (GameManager.isBeingDragged && movementFrozen)
+
+        if (GameManager.isBeingDragged)
         {
             rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
         }
     }
 
@@ -64,11 +69,10 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + direction * movementSpeed * Time.deltaTime);
     }
 
-    public void DragMeARiver(Vector2 vDragDirection, float distance)
+    public void CalculateDragDirection(Vector2 vDragDirection, float distance)
     {
         dragDirection = vDragDirection.normalized;
         //Debug.Log(this.name + dragDirection * dragForce);
         distanceFactor = distance * distanceInfluence;
-        movementFrozen = true;
     }
 }
