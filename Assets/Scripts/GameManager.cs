@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool movementFrozen = false;
+    public static bool isBeingDragged = false;
 
     public PlayerController player0;
     public PlayerController player1;
 
+    public float timerLength;
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.E))
+        if(Input.GetKeyUp(KeyCode.E) && !isBeingDragged)
         {
-            movementFrozen = !movementFrozen;
+            isBeingDragged = true;
             DragPlayers();
+            StartCoroutine(TimerForMe(timerLength));
+            player0.movementFrozen = true;
+            player1.movementFrozen = true;
         }
     }
 
@@ -27,5 +32,11 @@ public class GameManager : MonoBehaviour
 
         player0.DragMeARiver(player0Direction, distance);
         player1.DragMeARiver(player1Direction, distance);
+    }
+
+    IEnumerator TimerForMe(float timerTime)
+    {
+        yield return new WaitForSecondsRealtime(timerTime);
+        isBeingDragged = false;
     }
 }

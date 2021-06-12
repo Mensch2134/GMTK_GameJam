@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movementDirection;
 
-        float BASE_DRAG_FORCE = 1;
+    float BASE_DRAG_FORCE = 1;
+    private Vector2 dragDirection;
+    private float distanceFactor;
+    public bool movementFrozen = false;
 
     private void Start()
     {
@@ -35,11 +38,14 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GameManager.movementFrozen)
+        if (!GameManager.isBeingDragged && !movementFrozen)
         {
             move(movementDirection);
         }
-        //Debug.Log(rb.velocity);
+        if (GameManager.isBeingDragged && movementFrozen)
+        {
+            rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
+        }
     }
 
     void processInputs()
@@ -60,9 +66,9 @@ public class PlayerController : MonoBehaviour
 
     public void DragMeARiver(Vector2 vDragDirection, float distance)
     {
-        Vector2 dragDirection = vDragDirection.normalized;
+        dragDirection = vDragDirection.normalized;
         //Debug.Log(this.name + dragDirection * dragForce);
-        float distanceFactor = distance * distanceInfluence;
-        rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
+        distanceFactor = distance * distanceInfluence;
+        movementFrozen = true;
     }
 }

@@ -178,7 +178,7 @@ MonoBehaviour:
   movementSpeed: 10
   rb: {fileID: 217561451}
   playerIndex: 1
-  dragForce: 10
+  dragForce: 0.5
   distanceInfluence: 1
 --- !u!4 &217561453
 Transform:
@@ -394,7 +394,7 @@ MonoBehaviour:
   movementSpeed: 10
   rb: {fileID: 805945960}
   playerIndex: 0
-  dragForce: 10
+  dragForce: 0.5
   distanceInfluence: 1
 --- !u!4 &805945962
 Transform:
@@ -6882,6 +6882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player0: {fileID: 805945961}
   player1: {fileID: 217561452}
+  timerLength: 1
 --- !u!4 &1995103225
 Transform:
   m_ObjectHideFlags: 0
