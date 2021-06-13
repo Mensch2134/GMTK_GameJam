@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class PlayerController : MonoBehaviour
     [Header("PlayerStats")]
     public int playerIndex;
     public int health;
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
 
     [Header("Drag")]
     public float dragForce;
@@ -54,6 +58,7 @@ public class PlayerController : MonoBehaviour
                 move(movementDirection);
             }
         }
+        updateUI();
     }
 
     void processInputs()
@@ -101,5 +106,32 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         GameEvents.current.PlayerHit(this);
+    }
+
+    public void updateUI()
+    {
+        if (health > GameManager.playerMaxHealth)
+        {
+            health = GameManager.playerMaxHealth;
+        }
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            } else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+            if (i < GameManager.playerMaxHealth)
+            {
+                hearts[i].enabled = true;
+            } else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
 }
