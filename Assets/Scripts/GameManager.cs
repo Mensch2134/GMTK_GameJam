@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         player0.rb.velocity =  new Vector2(0,0);
         player1.rb.velocity = new Vector2(0, 0);
         player0.transform.position = spawnPoint0.transform.position;
+        player1.transform.position = spawnPoint1.transform.position;
         DisableDragPhase();
         timeRemaining = 15;
     }
@@ -122,13 +123,14 @@ public class GameManager : MonoBehaviour
 
     private void DeployLightZones()
     {
-        int toAdd = UnityEngine.Random.Range(4, 10);
+        int toAdd = UnityEngine.Random.Range(4, 7);
          
         for (int i = 0; i < toAdd; i++)
         {
             var zone = Instantiate(lightZonePrefab);
-            zone.transform.localScale = new Vector3(UnityEngine.Random.Range(2, 10), UnityEngine.Random.Range(2, 5), UnityEngine.Random.Range(2, 5));
-            zone.transform.position = new Vector2(UnityEngine.Random.Range(-13, 13), UnityEngine.Random.Range(-8, 8));
+            float localScale = UnityEngine.Random.Range(2, 5);
+            zone.transform.localScale = new Vector3(localScale,localScale,localScale);
+            zone.transform.position = new Vector2(UnityEngine.Random.Range(-13, 13), UnityEngine.Random.Range(-5, 6));
             _lightZones.Add(zone);
         }
     }
