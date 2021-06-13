@@ -1,34 +1,19 @@
 fileFormatVersion: 2
-guid: d6db1d45139485f4f833016d05be6bfc
+guid: 4a82517751d350c4794fccb0fec7aa31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4069131234880697984
-    second: DecoPlayer_0
+      213: -778879512503622445
+    second: Lebenspunkte_0
   - first:
-      213: -7439310443788723666
-    second: DecoPlayer_1
+      213: 4529578738819289959
+    second: Lebenspunkte_1
   - first:
-      213: 9127347330698063202
-    second: DecoPlayer_2
+      213: -7872204058496632877
+    second: Lebenspunkte_2
   - first:
-      213: -5852254966919608406
-    second: DecoPlayer_3
-  - first:
-      213: 2681497914015549205
-    second: DecoPlayer_4
-  - first:
-      213: 5157841360151892359
-    second: DecoPlayer_5
-  - first:
-      213: -6508798164144155191
-    second: DecoPlayer_6
-  - first:
-      213: 2860349448548960213
-    second: DecoPlayer_7
-  - first:
-      213: -331206884774665526
-    second: DecoPlayer_8
+      213: -1660044795245514614
+    second: Lebenspunkte_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -142,11 +127,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DecoPlayer_0
+      name: Lebenspunkte_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -156,18 +141,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0894d7873ba8787c0800000000000000
-      internalID: -4069131234880697984
+      spriteID: 3d46466c53dd035f0800000000000000
+      internalID: -778879512503622445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DecoPlayer_1
+      name: Lebenspunkte_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -177,18 +162,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a9e18019242c890800000000000000
-      internalID: -7439310443788723666
+      spriteID: 7635c7d3ddb4cde30800000000000000
+      internalID: 4529578738819289959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DecoPlayer_2
+      name: Lebenspunkte_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -198,18 +183,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26d2edbd90adaae70800000000000000
-      internalID: 9127347330698063202
+      spriteID: 3d77be51e1050c290800000000000000
+      internalID: -7872204058496632877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DecoPlayer_3
+      name: Lebenspunkte_3
       rect:
         serializedVersion: 2
         x: 32
-        y: 192
+        y: 0
         width: 32
         height: 32
       alignment: 0
@@ -219,113 +204,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa7cdb93d1d98cea0800000000000000
-      internalID: -5852254966919608406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DecoPlayer_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51709d64528963520800000000000000
-      internalID: 2681497914015549205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DecoPlayer_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 781dbafb365549740800000000000000
-      internalID: 5157841360151892359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DecoPlayer_6
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 160
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c519770e8a1ca5a0800000000000000
-      internalID: -6508798164144155191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DecoPlayer_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d7ce3e2ba002b720800000000000000
-      internalID: 2860349448548960213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DecoPlayer_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac2a7d5d711576bf0800000000000000
-      internalID: -331206884774665526
+      spriteID: a80b724dd0656f8e0800000000000000
+      internalID: -1660044795245514614
       vertices: []
       indices: 
       edges: []
