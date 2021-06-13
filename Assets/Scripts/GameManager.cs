@@ -98,24 +98,28 @@ public class GameManager : MonoBehaviour
 
    public void OnPlayerHit(PlayerController player)
     {
-        //remove hp und reset position
-        player.health -= 1;
-        if(player.health == 0)
+        if (DragPhase)
         {
-            ExecuteGameOver(player);
+            //remove hp und reset position
+            player.health -= 1;
+            if (player.health == 0)
+            {
+                ExecuteGameOver(player);
+            }
+            DestroyLightZones();
+            DeployLightZones();
+            player0.rb.velocity = new Vector2(0, 0);
+            player1.rb.velocity = new Vector2(0, 0);
+            player0.transform.position = spawnPoint0.transform.position;
+            player1.transform.position = spawnPoint1.transform.position;
+            DisableDragPhase();
+            timeRemaining = 15;
         }
-        DestroyLightZones();
-        DeployLightZones();
-        player0.rb.velocity =  new Vector2(0,0);
-        player1.rb.velocity = new Vector2(0, 0);
-        player0.transform.position = spawnPoint0.transform.position;
-        player1.transform.position = spawnPoint1.transform.position;
-        DisableDragPhase();
-        timeRemaining = 15;
     }
 
-    private void EnableDragPhase()
-    {
+    private void EnableDragPhase() 
+    { 
+    
         DragPhase = true;
         player0.rb.velocity = Vector2.zero;
         player1.rb.velocity = Vector2.zero;
