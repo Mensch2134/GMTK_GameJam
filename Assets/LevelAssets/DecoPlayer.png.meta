@@ -23,6 +23,12 @@ TextureImporter:
   - first:
       213: -6508798164144155191
     second: DecoPlayer_6
+  - first:
+      213: 2860349448548960213
+    second: DecoPlayer_7
+  - first:
+      213: -331206884774665526
+    second: DecoPlayer_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -278,6 +284,48 @@ TextureImporter:
       bones: []
       spriteID: 9c519770e8a1ca5a0800000000000000
       internalID: -6508798164144155191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DecoPlayer_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7ce3e2ba002b720800000000000000
+      internalID: 2860349448548960213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DecoPlayer_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2a7d5d711576bf0800000000000000
+      internalID: -331206884774665526
       vertices: []
       indices: 
       edges: []
