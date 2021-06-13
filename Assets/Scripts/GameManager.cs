@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using System.Linq;
 using UnityEngine.Events;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,8 +33,8 @@ public class GameManager : MonoBehaviour
         _gameOverPanel.SetActive(false);
         _timerTimeText.text = "Game Starts in: " + timeRemaining;
         GameEvents.current.onPlayerHit += OnPlayerHit;
-        ExecuteGameOver(null);
         _playerWinsMessage.text = string.Empty;
+        StartGame();
     }
     // Update is called once per frame
     void Update()
@@ -95,26 +96,43 @@ public class GameManager : MonoBehaviour
             EnableDragPhase();
         }
     }
-
-   public void OnPlayerHit(PlayerController player)
+    private bool blockPlayerHits = false;
+    public void OnPlayerHit(PlayerController player)
     {
-        if (DragPhase)
+        if (DragPhase && !blockPlayerHits)
         {
+            blockPlayerHits = true;
+            
             //remove hp und reset position
-            player.health -= 1;
-            if (player.health == 0)
-            {
-                ExecuteGameOver(player);
-            }
-            DestroyLightZones();
-            DeployLightZones();
-            player0.rb.velocity = new Vector2(0, 0);
-            player1.rb.velocity = new Vector2(0, 0);
-            player0.transform.position = spawnPoint0.transform.position;
-            player1.transform.position = spawnPoint1.transform.position;
-            DisableDragPhase();
-            timeRemaining = 15;
+            StartCoroutine(delay(player));
+            
         }
+    }
+
+
+    IEnumerator delay(PlayerController player)
+    {
+        Time.timeScale = 0;
+        player.health -= 1;
+        player.transform.Rotate(0, 0, -90);
+        SetBlockPlayerInput(true);
+        yield return new WaitForSecondsRealtime(0.5f);
+        if (player.health == 0)
+        {
+            ExecuteGameOver(player);
+        }
+        DestroyLightZones();
+        DeployLightZones();
+        player0.rb.velocity = new Vector2(0, 0);
+        player1.rb.velocity = new Vector2(0, 0);
+        player0.transform.position = spawnPoint0.transform.position;
+        player1.transform.position = spawnPoint1.transform.position;
+        DisableDragPhase();
+        timeRemaining = 15;
+        SetBlockPlayerInput(false);
+        player.transform.Rotate(0, 0, 90);
+        Time.timeScale = 1;
+        blockPlayerHits = false;
     }
 
     private void EnableDragPhase() 
@@ -137,6 +155,15 @@ public class GameManager : MonoBehaviour
         player0.movementFrozen = _blockPlayerMovement;
         player1.movementFrozen = _blockPlayerMovement;
         timeRemaining = maxWalkPhaseTimeInSeconds;
+        DestroyLightZones();
+        DeployLightZones();
+    }
+
+    private void SetBlockPlayerInput(bool b)
+    {
+        _blockPlayerMovement = b;
+        player0.movementFrozen = _blockPlayerMovement;
+        player1.movementFrozen = _blockPlayerMovement;
     }
 
     private void DeployLightZones()

@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(this.name + dragDirection * dragForce);
         distanceFactor = distance * distanceInfluence;
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         GameEvents.current.PlayerHit(this);
     }
