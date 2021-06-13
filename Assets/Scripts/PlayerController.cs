@@ -43,13 +43,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.DragPhase)
+        if (GameManager.GameRunning)
         {
-            rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
-        }
-        if (!movementFrozen)
-        {
-            move(movementDirection);
+            if (GameManager.DragPhase)
+            {
+                rb.AddForce(dragDirection * BASE_DRAG_FORCE * dragForce * distanceFactor);
+            }
+            if (!movementFrozen)
+            {
+                move(movementDirection);
+            }
         }
     }
 

@@ -10,39 +10,55 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static bool DragPhase = false;
+    public static bool GameRunning;
     public PlayerController player0;
     public PlayerController player1;
     public bool _blockPlayerMovement = false;
     public float maxPullPhaseTimeInSeconds = 1;
     public float maxWalkPhaseTimeInSeconds = 8;
     public float timeRemaining = 20;
-    public Text TimerTimeText;
+    public Text _timerTimeText;
     public GameObject spawnPoint0;
     public GameObject spawnPoint1;
     public int playerMaxHealth = 3;
     List<GameObject> _lightZones = new List<GameObject>();
     public GameObject lightZonePrefab;
+    public GameObject _gameOverPanel;
+    public Text _playerWinsMessage;
+    
 
     private void Start()
     {
-        TimerTimeText.text = "Game Starts in: " + timeRemaining;
+        _gameOverPanel.SetActive(false);
+        _timerTimeText.text = "Game Starts in: " + timeRemaining;
         GameEvents.current.onPlayerHit += OnPlayerHit;
-        DeployLightZones();
+        ExecuteGameOver(null);
+        _playerWinsMessage.text = string.Empty;
     }
     // Update is called once per frame
     void Update()
     {
-
-        UpdatePhaseTimer();
-        if (timeRemaining <= 0)
+        if (!GameRunning && Input.GetKeyUp(KeyCode.Space))
         {
-            SwitchPhase();
+            StartGame();
         }
-
-        if (Input.GetKeyUp(KeyCode.E) && !DragPhase)
+        
+        if(GameRunning)
         {
-            SwitchPhase();
+            UpdatePhaseTimer();
+            if (timeRemaining <= 0)
+            {
+                SwitchPhase();
+            }
+
+            if (Input.GetKeyUp(KeyCode.E) && !DragPhase)
+            {
+                SwitchPhase();
+            }
         }
+        
+
+        
     }
 
     void DragPlayers()
@@ -61,11 +77,11 @@ public class GameManager : MonoBehaviour
         timeRemaining -= Time.deltaTime;
         if (!DragPhase)
         {
-            TimerTimeText.text = Math.Floor(timeRemaining).ToString();
+            _timerTimeText.text = Math.Floor(timeRemaining).ToString();
         }
         else
         {
-            TimerTimeText.text = "Survive!";
+            _timerTimeText.text = "Survive!";
         }
     }
     void SwitchPhase()
@@ -86,9 +102,7 @@ public class GameManager : MonoBehaviour
         player.health -= 1;
         if(player.health == 0)
         {
-            TimerTimeText.text = "Game Over";
-            player0.health = playerMaxHealth;
-            player1.health = playerMaxHealth;
+            ExecuteGameOver(player);
         }
         DestroyLightZones();
         DeployLightZones();
@@ -142,5 +156,37 @@ public class GameManager : MonoBehaviour
             Destroy(zone);
         }
         _lightZones.Clear();
+    }
+
+    private void ExecuteGameOver(PlayerController loosingPlayer)
+    {
+        GameRunning = false;
+        DragPhase = false;
+        _timerTimeText.text = string.Empty;
+        player0.movementFrozen = _blockPlayerMovement;
+        player0.movementFrozen = _blockPlayerMovement;
+        string winner;
+        if (loosingPlayer == player0)
+        {
+            winner = "Red Ghost Wins!";
+        }
+        else
+        {
+            winner = "Blue Ghost Wins!";
+        }
+        _playerWinsMessage.text = winner;
+        _gameOverPanel.SetActive(true);
+
+    }
+
+    private void StartGame()
+    {
+        player0.health = playerMaxHealth;
+        player1.health = playerMaxHealth;
+        GameRunning = true;
+        DestroyLightZones();
+        DeployLightZones();
+        DisableDragPhase();
+        _gameOverPanel.SetActive(false);
     }
 }
