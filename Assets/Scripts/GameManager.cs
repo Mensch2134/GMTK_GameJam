@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
         player.health -= 1;
         player.transform.Rotate(0, 0, -90);
         SetBlockPlayerInput(true);
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(2f);
         if (player.health == 0)
         {
             ExecuteGameOver(player);
