@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Text TimerTimeText;
     public GameObject spawnPoint0;
     public GameObject spawnPoint1;
-    public int playerMaxHealth = 3;
+    public static int playerMaxHealth = 4;
     List<GameObject> _lightZones = new List<GameObject>();
     public GameObject lightZonePrefab;
 
