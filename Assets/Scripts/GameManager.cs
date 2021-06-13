@@ -56,10 +56,10 @@ public class GameManager : MonoBehaviour
                 SwitchPhase();
             }
 
-            if (Input.GetKeyUp(KeyCode.E) && !DragPhase)
-            {
-                SwitchPhase();
-            }
+            //if (Input.GetKeyUp(KeyCode.E) && !DragPhase)
+            //{
+            //    SwitchPhase();
+            //}
         }
         
 
