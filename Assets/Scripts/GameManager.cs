@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject spawnPoint1;
     public int playerMaxHealth = 3;
     List<GameObject> _lightZones = new List<GameObject>();
+    public GameObject lightZonePrefab;
 
     private void Start()
     {
@@ -54,15 +55,6 @@ public class GameManager : MonoBehaviour
         player1.CalculateDragDirection(player1Direction, distance);
     }
 
-    //IEnumerator TimerForMe(float timerTime)
-    //{
-    //    yield return new WaitForSecondsRealtime(timerTime);
-    //    DragPhase = false;
-    //    _blockPlayerMovement = false;
-    //    player0.movementFrozen = _blockPlayerMovement;
-    //    player1.movementFrozen = _blockPlayerMovement;
-    //}
-
     void UpdatePhaseTimer()
     {
         
@@ -80,22 +72,11 @@ public class GameManager : MonoBehaviour
     {
         if (DragPhase)
         {
-            DragPhase = false;
-            _blockPlayerMovement = false;
-            player0.movementFrozen = _blockPlayerMovement;
-            player1.movementFrozen = _blockPlayerMovement;
-            timeRemaining = maxWalkPhaseTimeInSeconds;
+            DisableDragPhase();
         }
         else
         {
-            DragPhase = true;
-            player0.rb.velocity = Vector2.zero;
-            player1.rb.velocity = Vector2.zero;
-            DragPlayers();
-            _blockPlayerMovement = true;
-            player0.movementFrozen = _blockPlayerMovement;
-            player1.movementFrozen = _blockPlayerMovement;
-            timeRemaining = maxPullPhaseTimeInSeconds;
+            EnableDragPhase();
         }
     }
 
@@ -114,14 +95,32 @@ public class GameManager : MonoBehaviour
         player0.rb.velocity =  new Vector2(0,0);
         player1.rb.velocity = new Vector2(0, 0);
         player0.transform.position = spawnPoint0.transform.position;
-        player1.transform.position = spawnPoint1.transform.position;
-        DragPhase = false;
+        DisableDragPhase();
         timeRemaining = 15;
     }
 
-    public GameObject lightZonePrefab;
+    private void EnableDragPhase()
+    {
+        DragPhase = true;
+        player0.rb.velocity = Vector2.zero;
+        player1.rb.velocity = Vector2.zero;
+        DragPlayers();
+        _blockPlayerMovement = true;
+        player0.movementFrozen = _blockPlayerMovement;
+        player1.movementFrozen = _blockPlayerMovement;
+        timeRemaining = maxPullPhaseTimeInSeconds;
+    }
 
-    public void DeployLightZones()
+    private void DisableDragPhase()
+    {
+        DragPhase = false;
+        _blockPlayerMovement = false;
+        player0.movementFrozen = _blockPlayerMovement;
+        player1.movementFrozen = _blockPlayerMovement;
+        timeRemaining = maxWalkPhaseTimeInSeconds;
+    }
+
+    private void DeployLightZones()
     {
         int toAdd = UnityEngine.Random.Range(4, 10);
          
@@ -133,7 +132,7 @@ public class GameManager : MonoBehaviour
             _lightZones.Add(zone);
         }
     }
-    public void DestroyLightZones()
+    private void DestroyLightZones()
     {
        foreach(var zone in _lightZones)
         {
