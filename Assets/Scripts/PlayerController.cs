@@ -17,23 +17,22 @@ public class PlayerController : MonoBehaviour
     public float dragForce;
     public float distanceInfluence;
 
-    Vector2 movementDirection;
+    public Vector2 movementDirection;
 
     float BASE_DRAG_FORCE = 1;
     private Vector2 dragDirection;
     private float distanceFactor;
     public bool movementFrozen = false;
 
-    public UnityEvent _playerHit;
-
+    private SpriteRenderer _playerSprite;
 
     private void Start()
     {
-        _playerHit = new UnityEvent();
         if (playerIndex < 0 || playerIndex > 1)
         {
             Debug.Log("PlayeIndex has to be 1 or 0 for the Players to move");
         }
+        _playerSprite = (SpriteRenderer) this.GetComponentInChildren(typeof(SpriteRenderer));
     }
 
     // Update is called once per frame
@@ -59,9 +58,20 @@ public class PlayerController : MonoBehaviour
         if (playerIndex == 0)
         {
             movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            if (movementDirection.x < 0)
+            {
+                _playerSprite.flipX = true;
+            }
+            else _playerSprite.flipX = false;
+
         }else if (playerIndex == 1)
         {
             movementDirection = new Vector2(Input.GetAxisRaw("HorizontalAlt"), Input.GetAxisRaw("VerticalAlt"));
+            if (movementDirection.x > 0)
+            {
+                _playerSprite.flipX = true;
+            }
+            else _playerSprite.flipX = false;
         }
     }
 
