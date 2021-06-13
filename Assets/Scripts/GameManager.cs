@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject lightZonePrefab;
     public GameObject _gameOverPanel;
     public Text _playerWinsMessage;
+
+    public AudioSource timerTickSound;
     
 
     private void Start()
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour
         GameEvents.current.onPlayerHit += OnPlayerHit;
         ExecuteGameOver(null);
         _playerWinsMessage.text = string.Empty;
+
+        timerTickSound.loop = false;
     }
     // Update is called once per frame
     void Update()
@@ -78,6 +82,10 @@ public class GameManager : MonoBehaviour
         if (!DragPhase)
         {
             _timerTimeText.text = Math.Floor(timeRemaining).ToString();
+            if (timeRemaining < 3 && !timerTickSound.isPlaying)
+            {
+                timerTickSound.Play();
+            }
         }
         else
         {
